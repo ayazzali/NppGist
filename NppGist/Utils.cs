@@ -21,6 +21,13 @@ namespace NppGist
 		public static T SendJsonRequest<T>(string url, WebRequestMethod method = WebRequestMethod.Get,
 			Dictionary<string, string> headers = null, byte[] body = null, string contentType = "", int timeout = 5000)
 		{
+            var rn = Environment.NewLine;
+            File.AppendAllText("logForSendJsonRequest.txt", "url:"+ url +rn
+                //string.Join(rn, headers?.Select(_=>_.Key+" "+_.Value))+rn+
+                //"contentType:" + contentType+rn+
+                //"timeout:"+ timeout+rn+
+                //"body:"+ body?.ToString()+rn+rn
+                );
 			Dictionary<string, string> responseHeaders;
 			return SendJsonRequest<T>(url, out responseHeaders, method, headers, body, contentType, timeout);
 		}
